@@ -9,6 +9,21 @@
 </head>
 <body>
     <h1>Pet Finder</h1>
+    <ul></ul>
+
+    <script>
+        const ul = document.querySelector('ul');
+
+        // get array of pets
+        fetch('http://localhost:8080/api/v1/pets').then(response => response.json()).then(pets => {
+            pets.forEach(pet => {
+                const li = document.createElement('li');
+                li.textContent = pet.name;
+                ul.appendChild(li);
+            })
+        })
+
+    </script>
     
     <script src="script.js"></script>
 </body>
